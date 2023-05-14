@@ -1,7 +1,7 @@
 # Interminhocão
 
 **Número da Lista**: 01<br>
-**Conteúdo da Disciplina**: Grafos1<br>
+**Conteúdo da Disciplina**: Grafos2<br>
 
 ## Alunos
 |Matrícula | Aluno |
