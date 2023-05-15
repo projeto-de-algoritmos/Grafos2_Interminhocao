@@ -5,7 +5,7 @@ from funcoes import *
 
 
 #teste();
-#x = bfs(graph, "A", "E")
+
 
 
 janela = Tk()
@@ -98,7 +98,9 @@ def addNo(x):
 
 
 
-        x = bfs(graph,nos[0],nos[1])
+        y = dijkstra(graphPeso,nos[0],nos[1])
+        x = y[1]
+        
         canvas.create_text(300,90, text="Menor caminho = {no2}".format(no2=x), fill="white" ,font=('Helvetica 15 bold'))
         #canvas.create_rectangle(canvas.bbox())
         canvas.pack()
