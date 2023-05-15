@@ -9,10 +9,10 @@ graph = {
       "C" : ["A","B","E"],
       "D" : ["A","B","F","H"],
       "E" : ["C","G"],
-      "F" : ["A","D","H","I"],
-      "G" : ["E","I","H"],
+      "F" : ["A","D","H",'ICC NORTE'],
+      "G" : ["E",'ICC NORTE',"H"],
       "H" : ["D","F","G"],
-      "I" : ["F","G"]
+      'ICC NORTE' : ["F","G"]
  }
 
 
@@ -54,16 +54,16 @@ def bfs(graph, inicial, final):
     return path
 """
 
-graphPeso = {
-    'A': {'B': 3, 'C': 5,'D': 6, 'F': 8},
-    'B': {'A': 3, 'C': 2, 'D': 6},
-    'C': {'A': 5, 'B': 2, 'E': 10},
-    'D': {'A': 6, 'B': 6, 'F': 8,'H': 7},
-    'E': {'C': 10,'G': 5},
-    'F': {'A': 8, 'D': 8, 'H': 8,'I': 8},
-    'G': {'E': 5, 'I': 2, 'H': 3},
-    'H': {'D': 7, 'F': 8, 'G': 3},
-    "I" : {'F': 8,'G': 2}
+graphPeso = { 
+    'ICC SUL': {'IB': 3, 'IDA': 5,'REITORIA': 6, 'CEUBINHO': 8},
+    'IB': {'ICC SUL': 3, 'IDA': 2, 'REITORIA': 6},
+    'IDA': {'ICC SUL': 2, 'IB': 2, 'FT': 10},
+    'REITORIA': {'ICC SUL': 7, 'IB': 6, 'CEUBINHO': 8,'BCE': 7},
+    'FT': {'IDA': 10,'FD': 4},
+    'CEUBINHO': {'ICC SUL': 8, 'REITORIA': 8, 'BCE': 8,'ICC NORTE': 8},
+    'FD': {'FT': 5, 'ICC NORTE': 2, 'BCE': 3},
+    'BCE': {'REITORIA': 2, 'CEUBINHO': 1, 'FD': 1},
+    'ICC NORTE' : {'CEUBINHO': 8,'FD': 2}
     }
 
 
