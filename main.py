@@ -16,7 +16,7 @@ texto = Text(janela)
 
 
 
-mapa =  Image.open("assets/UnBgrafo.png")
+mapa =  Image.open("assets/UnBMap2.2.png")
 img_no = Image.open("assets/square.png")
 img_no_selecionado = Image.open("assets/greensquare.png")
 
@@ -35,9 +35,10 @@ btn_no = ImageTk.PhotoImage(resized_btn)
 resized_green_btn = img_no_selecionado.resize((30,30))
 btn_select = ImageTk.PhotoImage(resized_green_btn)
 
+
 nos = []
 
-def noA(x):
+def noA(x,y):
     #print("A")
 
     if x == 0:
@@ -50,26 +51,48 @@ def noA(x):
         botaoG.config(image=btn_no)
         botaoH.config(image=btn_no)
         botaoI.config(image=btn_no)
-    else:
+    if(y > 1):
         for k in x:
-            if(k[0] == 'A'):
+            print(k)
+            if(k == 'ICC SUL'):
                 botaoA.config(image=btn_select)
-            if(k[0] == 'B'):
+            if(k == 'IB'):
                 botaoB.config(image=btn_select)
-            if(k[0] == 'C'):
+            if(k == 'IDA'):
                 botaoC.config(image=btn_select)
-            if(k[0] == 'D'):
+            if(k == 'REITORIA'):
                 botaoD.config(image=btn_select)
-            if(k[0] == 'E'):
+            if(k == 'FT'):
                 botaoE.config(image=btn_select)
-            if(k[0] == 'F'):
+            if(k == 'CEUBINHO'):
                 botaoF.config(image=btn_select)
-            if(k[0] == 'G'):
+            if(k == 'FD'):
                 botaoG.config(image=btn_select)
-            if(k[0] == 'H'):
+            if(k == 'BCE'):
                 botaoH.config(image=btn_select)
-            if(k[0] == 'I'):
+            if(k == 'ICC NORTE'):
                 botaoI.config(image=btn_select)
+    else: 
+        if(x == 'ICC SUL'):
+            botaoA.config(image=btn_select)
+        if(x == 'FT'):
+            botaoE.config(image=btn_select)
+        if(x == 'IDA'):
+            botaoC.config(image=btn_select)
+        if(x == 'IB'):
+            botaoB.config(image=btn_select)
+        if(x == 'REITORIA'):
+            botaoD.config(image=btn_select)
+        if(x == 'FT'):
+            botaoE.config(image=btn_select)
+        if(x == 'CEUBINHO'):
+            botaoF.config(image=btn_select)
+        if(x == 'FD'):
+            botaoG.config(image=btn_select)
+        if(x == 'BCE'):
+            botaoH.config(image=btn_select)
+        if(x == 'ICC NORTE'):
+            botaoI.config(image=btn_select)
 
     #k.config(image=btn_select)
 
@@ -78,9 +101,9 @@ def noA(x):
 def addNo(x):
 
     nos.append(x)
-    #print(nos)
+    print(nos,len(nos))
     if len(nos) < 2:
-        noA(x)
+        noA(x,len(nos))
     if len(nos) == 2:
         print('Menor caminho entre',nos[0],' e ',nos[1])
 
@@ -92,57 +115,57 @@ def addNo(x):
         #canvas.create_rectangle(canvas.bbox())
         canvas.pack()
 
-        canvas.create_rectangle(85, 100, 525, 70, fill="black")
+        canvas.create_rectangle(100, 50, 500, 80, fill="black")
         bbox = canvas.bbox("all")
         canvas.create_rectangle(bbox, outline="white")
 
 
+
         y = dijkstra(graphPeso,nos[0],nos[1])
         x = y[1]
-        s = y[0]
-
-        canvas.create_text(300,90, text="Menor caminho = {no2}, peso: {soma}".format(no2=x, soma=s), fill="white" ,font=('Helvetica 15 bold'))
+        
+        canvas.create_text(300,70, text="Menor caminho = {no2}".format(no2=x), fill="white" ,font=('Helvetica 15 bold'))
         #canvas.create_rectangle(canvas.bbox())
         canvas.pack()
-        noA(x)
+        noA(x,len(nos))
     if len(nos) > 2:
         nos.clear()
         #print("len", len(nos))
-        noA(0)
+        noA(0, len(nos))
 
-botaoA = Button(janela, image=btn_no,command=lambda: addNo('A'), bd=0, highlightthickness=0)
+botaoA = Button(janela, image=btn_no,command=lambda: addNo('ICC SUL'), bd=0, highlightthickness=0)
 botaoA.pack()
 botaoA.place(x=430,y=450, anchor=NW)
 
-botaoB = Button(janela, image=btn_no,command=lambda: addNo('B'), bd=0, highlightthickness=0)
+botaoB = Button(janela, image=btn_no,command=lambda: addNo('IB'), bd=0, highlightthickness=0)
 botaoB.pack()
 botaoB.place(x=325,y=480, anchor=NW)
 
-botaoC = Button(janela, image=btn_no,command=lambda: addNo('C'), bd=0, highlightthickness=0)
+botaoC = Button(janela, image=btn_no,command=lambda: addNo('IDA'), bd=0, highlightthickness=0)
 botaoC.pack()
 botaoC.place(x=326,y=350, anchor=NW)
 
-botaoD = Button(janela, image=btn_no,command=lambda: addNo('D'), bd=0, highlightthickness=0)
+botaoD = Button(janela, image=btn_no,command=lambda: addNo('REITORIA'), bd=0, highlightthickness=0)
 botaoD.pack()
 botaoD.place(x=680,y=650, anchor=NW)
 
-botaoE = Button(janela, image=btn_no,command=lambda: addNo('E'), bd=0, highlightthickness=0)
+botaoE = Button(janela, image=btn_no,command=lambda: addNo('FT'), bd=0, highlightthickness=0)
 botaoE.pack()
 botaoE.place(x=700,y=120, anchor=NW)
 
-botaoF = Button(janela, image=btn_no,command=lambda: addNo('F'), bd=0, highlightthickness=0)
+botaoF = Button(janela, image=btn_no,command=lambda: addNo('CEUBINHO'), bd=0, highlightthickness=0)
 botaoF.pack()
-botaoF.place(x=725,y=335, anchor=NW)
+botaoF.place(x=680,y=315, anchor=NW)
 
-botaoG = Button(janela, image=btn_no,command=lambda: addNo('G'), bd=0, highlightthickness=0)
+botaoG = Button(janela, image=btn_no,command=lambda: addNo('FD'), bd=0, highlightthickness=0)
 botaoG.pack()
 botaoG.place(x=980,y=140, anchor=NW)
 
-botaoH = Button(janela, image=btn_no,command=lambda: addNo('H'), bd=0, highlightthickness=0)
+botaoH = Button(janela, image=btn_no,command=lambda: addNo('BCE'), bd=0, highlightthickness=0)
 botaoH.pack()
 botaoH.place(x=1080,y=440, anchor=NW)
 
-botaoI = Button(janela, image=btn_no,command=lambda: addNo('I'), bd=0, highlightthickness=0)
+botaoI = Button(janela, image=btn_no,command=lambda: addNo('ICC NORTE'), bd=0, highlightthickness=0)
 botaoI.pack()
 botaoI.place(x=820,y=180, anchor=NW)
 
