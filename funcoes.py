@@ -55,15 +55,15 @@ def bfs(graph, inicial, final):
 """
 
 graphPeso = { 
-    'ICC SUL': {'IB': 3, 'IDA': 5,'REITORIA': 6, 'CEUBINHO': 8},
+    'ICC SUL': {'IB': 3, 'IDA': 3,'REITORIA': 6, 'CEUBINHO': 10},
     'IB': {'ICC SUL': 3, 'IDA': 2, 'REITORIA': 6},
-    'IDA': {'ICC SUL': 5, 'IB': 2, 'FT': 10},
+    'IDA': {'ICC SUL': 3, 'IB': 2, 'FT': 8},
     'REITORIA': {'ICC SUL':6, 'IB': 6, 'CEUBINHO': 8,'BCE': 7},
-    'FT': {'IDA': 10,'FD': 5},
-    'CEUBINHO': {'ICC SUL': 8, 'REITORIA': 8, 'BCE': 8,'ICC NORTE': 8},
-    'FD': {'FT': 5, 'ICC NORTE':2, 'BCE': 3},
+    'FT': {'IDA': 8,'FD': 3},
+    'CEUBINHO': {'ICC SUL': 10, 'REITORIA': 8, 'BCE': 8,'ICC NORTE': 10},
+    'FD': {'FT': 3, 'ICC NORTE':2, 'BCE': 3},
     'BCE': {'REITORIA': 7, 'CEUBINHO': 8, 'FD': 3},
-    'ICC NORTE' : {'CEUBINHO': 8,'FD': 2}
+    'ICC NORTE' : {'CEUBINHO': 10,'FD': 2}
     }
 
 
