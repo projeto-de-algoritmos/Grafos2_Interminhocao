@@ -66,3 +66,18 @@ def bfs(graph, inicial, final):
     path.reverse()
     print('menor caminho',path)
     return path
+
+graphPeso = {
+    'A': {'B': 5, 'C': 2,'D': 1, 'F': 1},
+    'B': {'A': 5, 'C': 1, 'D': 3},
+    'C': {'A': 2, 'B': 1, 'E': 1},
+    'D': {'A': 3, 'B': 1, 'F': 4,'H': 5},
+    'E': {'C': 4,'G': 4},
+    'F': {'A': 3, 'D': 1, 'H': 4,'I': 5},
+    'G': {'E': 5, 'I': 1, 'H': 3},
+    'H': {'A': 2, 'B': 1, 'D': 1},
+    "I" : {'C': 4,'G': 4}
+    }
+
+
+
