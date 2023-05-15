@@ -1,4 +1,6 @@
 from queue import Queue
+import heapq
+
 
 
 graph = {
@@ -12,22 +14,6 @@ graph = {
       "H" : ["D","F","G"],
       "I" : ["F","G"]
  }
-#
-#visited = []
-#queue = []
-
-#def bfs(visited, graph, node):
- #   visited.append(node)
-  #  queue.append(node)
-
-   # while queue:
-    #    m = queue.pop(0)
-     #   print(m,end = " ")
-
-      #  for neighbour in graph[m]:
-       #     if neighbour not in visited:
-        #        visited.append(neighbour)
-         #       queue.append(neighbour)
 
 
 def bfs(graph, inicial, final):
@@ -67,20 +53,19 @@ def bfs(graph, inicial, final):
     print('menor caminho',path)
     return path
 
+
 graphPeso = {
-    'A': {'B': 5, 'C': 2,'D': 1, 'F': 1},
-    'B': {'A': 5, 'C': 1, 'D': 3},
-    'C': {'A': 2, 'B': 1, 'E': 1},
-    'D': {'A': 3, 'B': 1, 'F': 4,'H': 5},
-    'E': {'C': 4,'G': 4},
-    'F': {'A': 3, 'D': 1, 'H': 4,'I': 5},
+    'A': {'B': 3, 'C': 5,'D': 6, 'F': 8},
+    'B': {'A': 3, 'C': 4, 'D': 6},
+    'C': {'A': 2, 'B': 1, 'E': 10},
+    'D': {'A': 7, 'B': 6, 'F': 8,'H': 7},
+    'E': {'C': 10,'G': 4},
+    'F': {'A': 8, 'D': 8, 'H': 8,'I': 8},
     'G': {'E': 5, 'I': 1, 'H': 3},
-    'H': {'A': 2, 'B': 1, 'D': 1},
-    "I" : {'C': 4,'G': 4}
+    'H': {'D': 2, 'F': 1, 'G': 1},
+    "I" : {'F': 8,'G': 4}
     }
 
-    
-import heapq
 
 def dijkstra(graph, start, end):
     # Cria um dicionário para armazenar as distâncias dos nós ao nó inicial
@@ -117,15 +102,10 @@ def dijkstra(graph, start, end):
     return shortest_distance, shortest_path
 
 start_node = 'A'
-end_node = 'E'
+end_node = 'I'
 
 shortest_distance, shortest_path = dijkstra(graphPeso, start_node, end_node)
 
 print(f"A menor distância entre '{start_node}' e '{end_node}' é: {shortest_distance}")
 print(f"O caminho percorrido é: {' -> '.join(shortest_path)}")
 print(shortest_path)
-
-
-
-
-
