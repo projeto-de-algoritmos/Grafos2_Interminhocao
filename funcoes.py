@@ -79,5 +79,53 @@ graphPeso = {
     "I" : {'C': 4,'G': 4}
     }
 
+    
+import heapq
+
+def dijkstra(graph, start, end):
+    # Cria um dicionário para armazenar as distâncias dos nós ao nó inicial
+    distances = {node: float('inf') for node in graph}
+    distances[start] = 0  # A distância do nó inicial a ele mesmo é 0
+
+    # Cria um dicionário para armazenar o caminho percorrido até cada nó
+    path = {node: [] for node in graph}
+    path[start] = [start]  # O caminho para o nó inicial é ele mesmo
+
+    # Cria uma fila de prioridade para armazenar os nós visitados
+    queue = [(0, start)]
+
+    while queue:
+        current_distance, current_node = heapq.heappop(queue)
+
+        # Ignora o nó se já tiver sido visitado com uma distância menor
+        if current_distance > distances[current_node]:
+            continue
+
+        # Verifica os vizinhos do nó atual
+        for neighbor, weight in graph[current_node].items():
+            distance = current_distance + weight
+
+            # Se encontrar um caminho mais curto para o vizinho, atualiza a distância e o caminho
+            if distance < distances[neighbor]:
+                distances[neighbor] = distance
+                path[neighbor] = path[current_node] + [neighbor]
+                heapq.heappush(queue, (distance, neighbor))
+
+    shortest_distance = distances[end]  # Menor distância para o nó final
+    shortest_path = path[end]  # Caminho percorrido para o nó final
+
+    return shortest_distance, shortest_path
+
+start_node = 'A'
+end_node = 'E'
+
+shortest_distance, shortest_path = dijkstra(graphPeso, start_node, end_node)
+
+print(f"A menor distância entre '{start_node}' e '{end_node}' é: {shortest_distance}")
+print(f"O caminho percorrido é: {' -> '.join(shortest_path)}")
+print(shortest_path)
+
+
+
 
 
