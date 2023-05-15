@@ -57,12 +57,12 @@ def bfs(graph, inicial, final):
 graphPeso = {
     'A': {'B': 3, 'C': 5,'D': 6, 'F': 8},
     'B': {'A': 3, 'C': 4, 'D': 6},
-    'C': {'A': 2, 'B': 1, 'E': 10},
-    'D': {'A': 7, 'B': 6, 'F': 8,'H': 7},
-    'E': {'C': 10,'G': 4},
+    'C': {'A': 5, 'B': 4, 'E': 10},
+    'D': {'A': 6, 'B': 6, 'F': 8,'H': 7},
+    'E': {'C': 10,'G': 5},
     'F': {'A': 8, 'D': 8, 'H': 8,'I': 8},
-    'G': {'E': 5, 'I': 1, 'H': 3},
-    'H': {'D': 2, 'F': 1, 'G': 1},
+    'G': {'E': 5, 'I': 4, 'H': 3},
+    'H': {'D': 7, 'F': 8, 'G': 3},
     "I" : {'F': 8,'G': 4}
     }
 
@@ -70,12 +70,12 @@ graphPeso = {
 def dijkstra(graph, start, end):
 
     distances = {node: float('inf') for node in graph}
-    distances[start] = 0  
+    distances[start] = 0
 
-   
+
     path = {node: [] for node in graph}
-    path[start] = [start]  
-    
+    path[start] = [start]
+
     queue = [(0, start)]
 
     while queue:
@@ -88,14 +88,14 @@ def dijkstra(graph, start, end):
         for neighbor, weight in graph[current_node].items():
             distance = current_distance + weight
 
-           
+
             if distance < distances[neighbor]:
                 distances[neighbor] = distance
                 path[neighbor] = path[current_node] + [neighbor]
                 heapq.heappush(queue, (distance, neighbor))
 
-    shortest_distance = distances[end]  
-    shortest_path = path[end]  
+    shortest_distance = distances[end]
+    shortest_path = path[end]
 
     print(f"A menor distância entre '{start}' e '{end}' é: {shortest_distance}")
     print(f"O caminho percorrido é: {' -> '.join(shortest_path)}")
@@ -103,7 +103,3 @@ def dijkstra(graph, start, end):
 
 
     return shortest_distance, shortest_path
-
-
-
-
