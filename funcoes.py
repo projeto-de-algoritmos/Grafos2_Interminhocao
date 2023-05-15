@@ -1,7 +1,7 @@
 from queue import Queue
 import heapq
 
-
+"""
 
 graph = {
       "A" : ["B","C","D","F"],
@@ -52,7 +52,7 @@ def bfs(graph, inicial, final):
     path.reverse()
     print('menor caminho',path)
     return path
-
+"""
 
 graphPeso = {
     'A': {'B': 3, 'C': 5,'D': 6, 'F': 8},
@@ -68,15 +68,14 @@ graphPeso = {
 
 
 def dijkstra(graph, start, end):
-    # Cria um dicionário para armazenar as distâncias dos nós ao nó inicial
+
     distances = {node: float('inf') for node in graph}
-    distances[start] = 0  # A distância do nó inicial a ele mesmo é 0
+    distances[start] = 0  
 
-    # Cria um dicionário para armazenar o caminho percorrido até cada nó
+   
     path = {node: [] for node in graph}
-    path[start] = [start]  # O caminho para o nó inicial é ele mesmo
-
-    # Cria uma fila de prioridade para armazenar os nós visitados
+    path[start] = [start]  
+    
     queue = [(0, start)]
 
     while queue:
@@ -86,26 +85,25 @@ def dijkstra(graph, start, end):
         if current_distance > distances[current_node]:
             continue
 
-        # Verifica os vizinhos do nó atual
         for neighbor, weight in graph[current_node].items():
             distance = current_distance + weight
 
-            # Se encontrar um caminho mais curto para o vizinho, atualiza a distância e o caminho
+           
             if distance < distances[neighbor]:
                 distances[neighbor] = distance
                 path[neighbor] = path[current_node] + [neighbor]
                 heapq.heappush(queue, (distance, neighbor))
 
-    shortest_distance = distances[end]  # Menor distância para o nó final
-    shortest_path = path[end]  # Caminho percorrido para o nó final
+    shortest_distance = distances[end]  
+    shortest_path = path[end]  
+
+    print(f"A menor distância entre '{start}' e '{end}' é: {shortest_distance}")
+    print(f"O caminho percorrido é: {' -> '.join(shortest_path)}")
+    print(shortest_path)
+
 
     return shortest_distance, shortest_path
 
-start_node = 'A'
-end_node = 'I'
 
-shortest_distance, shortest_path = dijkstra(graphPeso, start_node, end_node)
 
-print(f"A menor distância entre '{start_node}' e '{end_node}' é: {shortest_distance}")
-print(f"O caminho percorrido é: {' -> '.join(shortest_path)}")
-print(shortest_path)
+
