@@ -92,16 +92,16 @@ def addNo(x):
         #canvas.create_rectangle(canvas.bbox())
         canvas.pack()
 
-        canvas.create_rectangle(100, 100, 500, 70, fill="black")
+        canvas.create_rectangle(85, 100, 525, 70, fill="black")
         bbox = canvas.bbox("all")
         canvas.create_rectangle(bbox, outline="white")
 
 
-
         y = dijkstra(graphPeso,nos[0],nos[1])
         x = y[1]
-        
-        canvas.create_text(300,90, text="Menor caminho = {no2}".format(no2=x), fill="white" ,font=('Helvetica 15 bold'))
+        s = y[0]
+
+        canvas.create_text(300,90, text="Menor caminho = {no2}, peso: {soma}".format(no2=x, soma=s), fill="white" ,font=('Helvetica 15 bold'))
         #canvas.create_rectangle(canvas.bbox())
         canvas.pack()
         noA(x)
