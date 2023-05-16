@@ -14,11 +14,11 @@ A ideia do projeto é mostrar a mobilidade dentro da Universidade de Brasília n
 
 ## Screenshots
 
-![alt text](https://github.com/projeto-de-algoritmos/Grafos1_Iterminhoc-o/blob/master/assets/printUnB.png?raw=true)
+![alt text](https://github.com/projeto-de-algoritmos/Grafos2_Interminhocao/blob/master/assets/UnB.png?raw=true)
 
-![alt text](https://github.com/projeto-de-algoritmos/Grafos1_Iterminhoc-o/blob/master/assets/printCaminho.png?raw=true)
+![alt text](https://github.com/projeto-de-algoritmos/Grafos2_Interminhocao/blob/master/assets/ReitoriaICC.png?raw=true)
 
-![alt text](https://github.com/projeto-de-algoritmos/Grafos1_Iterminhoc-o/blob/master/assets/printDtoI.png?raw=true)
+![alt text](https://github.com/projeto-de-algoritmos/Grafos2_Interminhocao/blob/master/assets/IBparaICC.png?raw=true)
 
 ## Instalação
 **Linguagem**: Python<br>
