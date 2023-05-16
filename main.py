@@ -16,7 +16,7 @@ texto = Text(janela)
 
 
 
-mapa =  Image.open("assets/UnBMap2.2.png")
+mapa =  Image.open("assets/UnbMap2.png")
 img_no = Image.open("assets/square.png")
 img_no_selecionado = Image.open("assets/greensquare.png")
 
@@ -72,7 +72,7 @@ def noA(x,y):
                 botaoH.config(image=btn_select)
             if(k == 'ICC NORTE'):
                 botaoI.config(image=btn_select)
-    else: 
+    else:
         if(x == 'ICC SUL'):
             botaoA.config(image=btn_select)
         if(x == 'FT'):
@@ -107,7 +107,7 @@ def addNo(x):
     if len(nos) == 2:
         print('Menor caminho entre',nos[0],' e ',nos[1])
 
-        canvas.create_rectangle(100, 10, 500, 40, fill="black")
+        canvas.create_rectangle(50, 10, 550, 40, fill="black")
         bbox = canvas.bbox("all")
         canvas.create_rectangle(bbox, outline="white")
 
@@ -115,7 +115,7 @@ def addNo(x):
         #canvas.create_rectangle(canvas.bbox())
         canvas.pack()
 
-        canvas.create_rectangle(100, 50, 500, 80, fill="black")
+        canvas.create_rectangle(25, 50, 575, 80, fill="black")
         bbox = canvas.bbox("all")
         canvas.create_rectangle(bbox, outline="white")
 
@@ -123,7 +123,7 @@ def addNo(x):
 
         y = dijkstra(graphPeso,nos[0],nos[1])
         x = y[1]
-        
+
         canvas.create_text(300,70, text="Menor caminho = {no2}".format(no2=x), fill="white" ,font=('Helvetica 15 bold'))
         #canvas.create_rectangle(canvas.bbox())
         canvas.pack()
